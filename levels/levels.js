@@ -8,7 +8,7 @@ const levels = {
         "href": "levels/level1.html"
     },
      "LVL2": {
-        "name": "Write "MVP" tests",
+        "name": "Write \"MVP\" tests",
         "href": "levels/level2.html"
     },
      "LVL3": {
