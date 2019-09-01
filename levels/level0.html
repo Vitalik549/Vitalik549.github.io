@@ -1,1 +1,33 @@
 level0
+
+Analyse requirements.
+Define expectations. 
+
+Answer following questions: 
+- what do you want to automate? testing of a website, backend logic, application performance, desktop application, mobile app, all that? or just script some staff to reduce manual work?
+-- choose set of tools, programming language/integrated solution that allows to test that
+- do you really need automation? 
+-- would you get any profit (ROI) by automating that? probably that could be done manually (or half-automated) in reasonable amount of time. Don't over-engineer.
+- what resources do you have? time/people/money/soft/tools/...
+-- 
+
+Tests:
+- how many tests do you expect to have?
+-- is that solution scalable enough to support that amount of tests?
+- how many people will work with automation solution?
+-- does your solution work fine with that amount of concurrent users? how will you store/distribute code among that people?
+- how your tests expected to run?
+-- do you want to run tests manually or automatically? Could/Should your solution be integrated into CI pipeline? 
+-- Locally or on a remote machine? 
+- on what environment will you run tests? dev server / prod / local server
+-- define level of security, possibility to modify/remove data, risks of unintentional data loss on that env. You do not want to erase your producation database =) 
+
+
+- what levels of tests you want to run? unit, integration, e2e? 
+-- split tests on proper suites
+- define max time that your test job should run
+-- limit yourself to get fast response 
+- how frequently?
+-- again, fast response
+- what is the goal of your automation?
+-- verify quality, regression testing, report managers, inform developers, reduce manual activities? 
