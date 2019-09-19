@@ -1,7 +1,19 @@
+<form action="/action_page.php">
 <div>
     Select programming language
     <select id="prog_langs"></select>
 </div>
+<div id="lang_data" style="display:hidden;"> 
+<p>Version</p> <div id="versions"></div>
+<p>IDE</p> <div id="ides"></div>
+<p>build_tools</p> <div id="build_tools"></div>
+<p>web_frameworks</p> <div id="web_frameworks"></div>
+<p>rest_frameworks</p> <div id="rest_frameworks"></div>
+<p>test_frameworks</p> <div id="test_frameworks"></div>
+<p>assertion_frameworks</p> <div id="assertion_frameworks"></div>
+</div>
+  <input type="submit" value="Submit">
+</form>
 
 <p>
     <a href="pages/home_beginners.html">For beginners</a>
@@ -17,12 +29,12 @@
         "Java": {
             "language": "java",
             "versions": ["8"],
-            "ide": ["Intellij Idea"],
-            "build_tool": ["Gradle", "Maven"],
-            "web_framework": ["Seleinum", "Selenide"],
-            "rest_framework": ["Retrofit", "Rest assured"],
-            "test_frameword": ["TestNg", "Junit"],
-            "assertion_framework": ["AssertJ", "Hamcrest"]
+            "ides": ["Intellij Idea"],
+            "build_tools": ["Gradle", "Maven"],
+            "web_frameworks": ["Seleinum", "Selenide"],
+            "rest_frameworks": ["Retrofit", "Rest assured"],
+            "test_frameworks": ["TestNg", "Junit"],
+            "assertion_frameworks": ["AssertJ", "Hamcrest"]
         }
     }
 
@@ -34,6 +46,8 @@
             select.add(option);
         });
     }
+    
+    //<input type="radio" name="age" value="60"> 31 - 60<br>
 
     function main() {
         addProgLangs()
