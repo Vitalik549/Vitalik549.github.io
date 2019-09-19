@@ -1,3 +1,5 @@
+If you are not aware what to choose - remain recommended default selection. 
+
 <form id="lang_form" action="/index.html">
     <div>
         Select programming language
@@ -67,10 +69,10 @@
             "versions": ["8"],
             "ides": ["Intellij Idea"],
             "build_tools": ["Gradle", "Maven"],
-            "web_frameworks": ["Seleinum", "Selenide"],
+            "web_frameworks": ["Selenium", "Selenide"],
             "rest_frameworks": ["Retrofit", "Rest assured"],
             "test_frameworks": ["TestNg", "Junit"],
-            "assertion_frameworks": ["AssertJ", "Hamcrest"]
+            "assertion_frameworks": ["Hamcrest", "AssertJ"]
         }
     }
 
@@ -87,14 +89,13 @@
 
     function addDataLine(lineClass, data) {
         var parent = document.querySelectorAll('.radio_line.' + lineClass + ' .radio_line_data')[0];
-        data[lineClass].forEach(function (val) {
+        data[lineClass].forEach(function (val, index) {
             var input = document.createElement("input");
             input.setAttribute('type', 'radio');
             input.setAttribute('name', lineClass);
             input.setAttribute('value', val);
 
-            let isNoOtherChoice = data[lineClass].length == 1
-            if (isNoOtherChoice) {
+            if (index == 0) {
                 input.checked = true;
             }
 
