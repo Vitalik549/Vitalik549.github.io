@@ -1,18 +1,54 @@
-<form action="/action_page.php">
-<div>
-    Select programming language
-    <select id="prog_langs"></select>
-</div>
-<div id="lang_data" style="display:hidden;"> 
-<p>Version</p> <div id="versions"></div>
-<p>IDE</p> <div id="ides"></div>
-<p>build_tools</p> <div id="build_tools"></div>
-<p>web_frameworks</p> <div id="web_frameworks"></div>
-<p>rest_frameworks</p> <div id="rest_frameworks"></div>
-<p>test_frameworks</p> <div id="test_frameworks"></div>
-<p>assertion_frameworks</p> <div id="assertion_frameworks"></div>
-</div>
-  <input type="submit" value="Submit">
+<form id="lang_form" action="/action_page.php">
+    <div>
+        Select programming language
+        <select id="prog_langs" onchange="changeProgLang()"></select>
+    </div>
+    <div id="lang_data">
+        <div class="radio_line versions">
+            <div class="radio_line_details">
+                Version
+            </div>
+            <div class="radio_line_data"></div>
+        </div>
+        <div class="radio_line ides">
+            <div class="radio_line_details">
+                IDE
+            </div>
+            <div class="radio_line_data"></div>
+        </div>
+        <div class="radio_line build_tools">
+            <div class="radio_line_details">
+                Build tool
+            </div>
+            <div class="radio_line_data"></div>
+        </div>
+        <div class="radio_line web_frameworks">
+            <div class="radio_line_details">
+                Web framework
+            </div>
+            <div class="radio_line_data"></div>
+        </div>
+        <div class="radio_line rest_frameworks">
+            <div class="radio_line_details">
+                REST framework
+            </div>
+            <div class="radio_line_data"></div>
+        </div>
+        <div class="radio_line test_frameworks">
+            <div class="radio_line_details">
+                Test framework
+            </div>
+            <div class="radio_line_data"></div>
+        </div>
+        <div class="radio_line assertion_frameworks">
+            <div class="radio_line_details">
+                Assertion framework
+            </div>
+            <div class="radio_line_data"></div>
+        </div>
+
+    </div>
+    <input type="submit" value="Submit">
 </form>
 
 <p>
@@ -40,17 +76,51 @@
 
     function addProgLangs() {
         var select = document.getElementById("prog_langs");
-        Object.keys(PROG_LANGS).forEach(function(lang) {
+        Object.keys(PROG_LANGS).forEach(function (lang) {
             var option = document.createElement("option");
             option.text = lang;
             select.add(option);
         });
+        select.value = Object.keys(PROG_LANGS)[0];
+        select.onchange();
     }
-    
+
+    function addDataLine(lineClass, data) {
+        var parent = document.querySelectorAll('.radio_line.' + lineClass + ' .radio_line_data')[0];
+        data[lineClass].forEach(function (val) {
+            var input = document.createElement("input");
+            input.setAttribute('type', 'radio');
+            input.setAttribute('name', lineClass);
+            input.setAttribute('value', val);
+
+            let isNoOtherChoice = data[lineClass].length == 1
+            if (isNoOtherChoice) {
+                input.checked = true;
+            }
+
+            parent.appendChild(input);
+            parent.appendChild(document.createTextNode(val));
+            // parent.appendChild(document.createElement("br"));
+        });
+    }
+
+    function changeProgLang() {
+        let lang = document.getElementById("prog_langs").value;
+        let data = PROG_LANGS[lang];
+
+        addDataLine("versions", data);
+        addDataLine("ides", data);
+        addDataLine("build_tools", data);
+        addDataLine("web_frameworks", data);
+        addDataLine("rest_frameworks", data);
+        addDataLine("test_frameworks", data);
+        addDataLine("assertion_frameworks", data);
+    }
+
     //<input type="radio" name="age" value="60"> 31 - 60<br>
 
     function main() {
-        addProgLangs()
+        addProgLangs();
     }
 
     main();
