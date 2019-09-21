@@ -1,4 +1,4 @@
-<form id="lang_form" action="/index.html">
+<form id="lang_form">
     <div>
         Select programming language
         <select id="prog_langs" onchange="changeProgLang()"></select>
@@ -48,21 +48,21 @@
         </div>
 
     </div>
-    <input type="submit" value="Submit">
+    <br>
+    <br> <input type="submit" value="Go as beginner" name="go_as_beginner" formaction="pages/home_beginners.html">
+    <br> Select this one in order to understand basics.
+    <br> You'll follow step-by-step instructions on how to write your first test, setup webdriver, make api call, etc.
+    <br> General concepts (start simple -> go complex) will be explained, instead of just showing the "code that works"
+    here.
+    <br>
+    <br> <input type="submit" value="Go as advanced user" name="go_as_advanced" formaction="pages/home_advanced.html">
+    <br> Select this one if you already know basics, and want to start writing automation test project.
+    <br> Less explanation, more code.
+
 </form>
 
-If you can't decide what tool to choose - default selection is recommended.
-<br>
+P.S. If you can't decide what tool to choose - default selection is recommended.
 
-<p>
-    <a href="pages/home_beginners.html">For beginners</a>
-</p>
-<br> Select this one in order to understand basics (recommended for beginners).
-<br> You'll follow step-by-step instructions on how to write your first test, setup webdriver, make api call, etc.
-<p>
-    <a href="pages/home_advanced.html">For advanced users</a>
-</p>
-<br> Select this one if you already know basics, and want to start writing automation test project.
 <script>
     const PROG_LANGS = {
         "Java": {
